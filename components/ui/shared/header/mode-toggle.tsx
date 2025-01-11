@@ -4,9 +4,13 @@ import { useState, useEffect } from "react";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
-} from "@components/ui/dropdown-menu";
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuCheckboxItem,
+} from "@/components/ui/dropdown-menu";
 import { useTheme } from "next-themes";
-import { Button } from "@components/ui/button";
+import { Button } from "@/components/ui/button";
 import { SunIcon, MoonIcon, SunMoonIcon } from "lucide-react";
 
 const ModeToggle = () => {
@@ -20,8 +24,11 @@ const ModeToggle = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost">
-          {theme == "system" ? (
+        <Button
+          variant="ghost"
+          className="focus-visible:ring-0 focus-visible:ring-offset-0"
+        >
+          {theme == "light" ? (
             <SunIcon />
           ) : theme == "dark" ? (
             <MoonIcon />
@@ -30,6 +37,28 @@ const ModeToggle = () => {
           )}
         </Button>
       </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuLabel>Appearance</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuCheckboxItem
+          checked={theme == "system"}
+          onClick={() => setTheme("system")}
+        >
+          System
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem
+          checked={theme == "light"}
+          onClick={() => setTheme("light")}
+        >
+          light
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem
+          checked={theme == "dark"}
+          onClick={() => setTheme("dark")}
+        >
+          dark
+        </DropdownMenuCheckboxItem>
+      </DropdownMenuContent>
     </DropdownMenu>
   );
 };

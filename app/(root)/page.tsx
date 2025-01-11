@@ -1,11 +1,5 @@
-
-
-function Homepage() {
-  return (
-    <>
-    Home
-    </>
-  )
-}
+const Homepage = () => {
+  return <>Home</>;
+};
 
 export default Homepage;

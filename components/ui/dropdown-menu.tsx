@@ -8,11 +8,11 @@ import { ReactNode } from "react";
 import { cn } from "@/lib/utils"
 
 const DropdownMenu = ({ children }: { children: ReactNode }) => {
-  return <div className="dropdown-menu">{children}</div>;
+  return <DropdownMenuPrimitive.Root>{children}</DropdownMenuPrimitive.Root>;
 };
 
 const DropdownMenuTrigger = ({ asChild, children }: { asChild: boolean, children: ReactNode }) => {
-  return <div className="dropdown-menu-trigger">{children}</div>;
+  return <DropdownMenuPrimitive.Trigger asChild={asChild}>{children}</DropdownMenuPrimitive.Trigger>;
 };
 
 const DropdownMenuGroup = DropdownMenuPrimitive.Group
