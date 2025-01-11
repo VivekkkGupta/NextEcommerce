@@ -3,12 +3,17 @@
 import * as React from "react"
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu"
 import { Check, ChevronRight, Circle } from "lucide-react"
+import { ReactNode } from "react";
 
 import { cn } from "@/lib/utils"
 
-const DropdownMenu = DropdownMenuPrimitive.Root
+const DropdownMenu = ({ children }: { children: ReactNode }) => {
+  return <div className="dropdown-menu">{children}</div>;
+};
 
-const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger
+const DropdownMenuTrigger = ({ asChild, children }: { asChild: boolean, children: ReactNode }) => {
+  return <div className="dropdown-menu-trigger">{children}</div>;
+};
 
 const DropdownMenuGroup = DropdownMenuPrimitive.Group
 
